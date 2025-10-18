@@ -1,0 +1,509 @@
+/* Styles spécifiques à la page Anciens Membres */
+
+/* Variables CSS avec la palette fournie */
+:root {
+    --bleu-nuit: #1a237e;
+    --rouge-nuit: #b71c1c;
+    --blanc: #ffffff;
+    --gris-clair: #f5f5f5;
+    --gris-fonce: #424242;
+    --bleu-clair: #3f51b5;
+    --rouge-clair: #e53935;
+    --bleu-gradient: linear-gradient(135deg, #1a237e 0%, #283593 100%);
+    --rouge-gradient: linear-gradient(135deg, #b71c1c 0%, #c62828 100%);
+    --shadow: 0 10px 30px rgba(0,0,0,0.1);
+    --shadow-hover: 0 15px 40px rgba(0,0,0,0.15);
+    --black: #020205;
+    --animation: slideUp 1s ease;
+}
+
+/* Animation d'apparition */
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Bannière Anciens Membres */
+.anciens-banner {
+    background: 
+        linear-gradient(135deg, rgba(26, 35, 126, 0.85) 0%, rgba(40, 53, 147, 0.85) 100%),
+        url('https://images.unsplash.com/photo-1521737711867-e3b97375f902?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+    background-size: cover;
+    background-position: center;
+    color: var(--blanc);
+    padding: 100px 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.anciens-banner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(26, 35, 126, 0.1);
+    z-index: 1;
+}
+
+.anciens-banner .banner-content {
+    position: relative;
+    z-index: 2;
+}
+
+.anciens-banner h1 {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.anciens-banner p {
+    font-size: 1.3rem;
+    opacity: 0.95;
+    font-weight: 300;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Section Présentation Anciens */
+.presentation-anciens {
+    padding: 80px 0;
+    background: var(--gris-clair);
+}
+
+.presentation-anciens .presentation-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.presentation-anciens .presentation-text h3 {
+    color: var(--bleu-nuit);
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+
+.presentation-anciens .presentation-text p {
+    margin-bottom: 25px;
+    line-height: 1.7;
+    color: var(--gris-fonce);
+    font-size: 1.1rem;
+}
+
+.stats-anciens {
+    display: flex;
+    gap: 30px;
+    margin-top: 40px;
+    justify-content: space-around;
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--bleu-nuit);
+    margin-bottom: 5px;
+}
+
+.stat-label {
+    color: var(--gris-fonce);
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.presentation-anciens .presentation-image {
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+}
+
+.presentation-anciens .presentation-image img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    display: block;
+}
+
+/* Section Anciens Responsables */
+.anciens-responsables {
+    padding: 80px 0;
+    background: var(--blanc);
+}
+
+/* Filtres */
+.filters {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 50px;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    padding: 10px 20px;
+    background: var(--gris-clair);
+    color: var(--gris-fonce);
+    border: 2px solid transparent;
+    border-radius: 25px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+    background: var(--bleu-gradient);
+    color: var(--blanc);
+    transform: translateY(-2px);
+}
+
+/* Grille des anciens membres */
+.anciens-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+}
+
+.ancien-card {
+    background: var(--blanc);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: all 0.4s ease;
+    border-top: 4px solid var(--bleu-nuit);
+    animation: var(--animation);
+}
+
+.ancien-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-hover);
+    border-top-color: var(--rouge-nuit);
+}
+
+.ancien-image {
+    position: relative;
+    height: 250px;
+    overflow: hidden;
+}
+
+.ancien-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.ancien-card:hover .ancien-image img {
+    transform: scale(1.05);
+}
+
+.promotion-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: var(--rouge-gradient);
+    color: var(--blanc);
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.ancien-content {
+    padding: 25px;
+}
+
+.ancien-content h3 {
+    color: var(--bleu-nuit);
+    margin-bottom: 5px;
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+.ancien-poste {
+    color: var(--rouge-nuit);
+    font-weight: 500;
+    margin-bottom: 15px;
+    font-size: 0.95rem;
+}
+
+.ancien-description {
+    color: var(--gris-fonce);
+    line-height: 1.6;
+    margin-bottom: 20px;
+    font-size: 0.95rem;
+}
+
+.competences h4 {
+    color: var(--bleu-nuit);
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.competences-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.competence-tag {
+    background: var(--gris-clair);
+    color: var(--gris-fonce);
+    padding: 5px 12px;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.ancien-card:hover .competence-tag {
+    background: var(--bleu-clair);
+    color: var(--blanc);
+}
+
+.ancien-reseaux {
+    display: flex;
+    gap: 10px;
+}
+
+.reseau-link {
+    width: 35px;
+    height: 35px;
+    background: var(--gris-clair);
+    color: var(--bleu-nuit);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.reseau-link:hover {
+    background: var(--bleu-gradient);
+    color: var(--blanc);
+    transform: translateY(-2px);
+}
+
+/* Section Témoignages */
+.temoignages {
+    padding: 80px 0;
+    background: var(--gris-clair);
+}
+
+.temoignages-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.temoignage-card {
+    background: var(--blanc);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: var(--shadow);
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.temoignage-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+}
+
+.temoignage-content {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.temoignage-content i {
+    color: var(--rouge-clair);
+    font-size: 2rem;
+    margin-bottom: 15px;
+    display: block;
+}
+
+.temoignage-content p {
+    color: var(--gris-fonce);
+    line-height: 1.6;
+    font-style: italic;
+    font-size: 1rem;
+}
+
+.temoignage-auteur {
+    border-top: 1px solid var(--gris-clair);
+    padding-top: 15px;
+}
+
+.temoignage-auteur strong {
+    color: var(--bleu-nuit);
+    display: block;
+    margin-bottom: 5px;
+}
+
+.temoignage-auteur span {
+    color: var(--gris-fonce);
+    font-size: 0.9rem;
+}
+
+/* Section Contact Anciens */
+.contact-anciens {
+    padding: 80px 0;
+    background: var(--bleu-gradient);
+    color: var(--blanc);
+    text-align: center;
+}
+
+.contact-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.contact-content p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    opacity: 0.9;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.contact-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 25px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.btn-primary {
+    background: var(--rouge-gradient);
+    color: var(--blanc);
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-hover);
+    background: var(--blanc);
+    color: var(--rouge-nuit);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: var(--blanc);
+    border-color: var(--blanc);
+}
+
+.btn-secondary:hover {
+    background: var(--blanc);
+    color: var(--bleu-nuit);
+    transform: translateY(-3px);
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .presentation-anciens .presentation-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    
+    .anciens-grid {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+    
+    .temoignages-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .anciens-banner {
+        padding: 80px 0;
+    }
+    
+    .anciens-banner h1 {
+        font-size: 2.5rem;
+    }
+    
+    .anciens-banner p {
+        font-size: 1.1rem;
+    }
+    
+    .filters {
+        gap: 10px;
+    }
+    
+    .filter-btn {
+        padding: 8px 16px;
+        font-size: 0.9rem;
+    }
+    
+    .stats-anciens {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .contact-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .btn {
+        width: 200px;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .anciens-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .ancien-card {
+        margin: 0 10px;
+    }
+    
+    .ancien-content {
+        padding: 20px;
+    }
+    
+    .contact-content h2 {
+        font-size: 2rem;
+    }
+    
+    .contact-content p {
+        font-size: 1rem;
+    }
+}

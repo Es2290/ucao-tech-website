@@ -1,0 +1,584 @@
+/* actualites.css - Styles spécifiques à la page Actualités */
+
+/* Variables CSS supplémentaires */
+:root {
+  --vert-sage: #4caf50;
+  --bleu-ciel: #2196f3;
+  --orange-vif: #ff9800;
+  --violet-doux: #9c27b0;
+  --jaune-soleil: #ffc107;
+  --turquoise: #009688;
+  --blanc-creme: #f8f9fa;
+  --gris-tres-clair: #e9ecef;
+  --gris-moyen: #6c757d;
+}
+
+/* Bannière de la page */
+.page-banner {
+  background: linear-gradient(
+    135deg,
+    var(--bleu-nuit) 0%,
+    var(--rouge-nuit) 100%
+  );
+  color: var(--blanc);
+  height: 300px;
+  padding: 80px 0 60px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.page-banner::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="rgba(255,255,255,0.1)"/></svg>');
+  background-size: cover;
+}
+
+.banner-content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.banner-content h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  font-weight: 700;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.banner-content p {
+  font-size: 1.3rem;
+  opacity: 0.9;
+  font-weight: 300;
+}
+
+/* Section principale des actualités */
+.actualites-main {
+  padding: 60px 0;
+  background-color: var(--blanc-creme);
+}
+
+/* Filtres */
+.actualites-filters {
+  margin-bottom: 50px;
+  text-align: center;
+}
+
+.actualites-filters h2 {
+  color: var(--bleu-nuit);
+  margin-bottom: 25px;
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.filter-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+}
+
+.filter-btn {
+  padding: 12px 24px;
+  border: 2px solid var(--bleu-clair);
+  background: var(--blanc);
+  color: var(--bleu-clair);
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  font-size: 0.95rem;
+}
+
+.filter-btn:hover {
+  background: var(--bleu-clair);
+  color: var(--blanc);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(63, 81, 181, 0.3);
+}
+
+.filter-btn.active {
+  background: var(--bleu-clair);
+  color: var(--blanc);
+  border-color: var(--bleu-clair);
+}
+
+/* Grille des actualités */
+.actualites-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 30px;
+  margin-bottom: 50px;
+}
+
+/* Carrousel d'actualités */
+.news-carousel {
+  position: relative;
+  margin-bottom: 50px;
+  padding: 0 60px;
+}
+
+.news-container {
+  display: flex;
+  gap: 30px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+  padding: 20px 0;
+  scroll-snap-type: x mandatory;
+}
+
+.news-container::-webkit-scrollbar {
+  display: none; /* Chrome, Safari and Opera */
+}
+
+/* Cartes d'actualités */
+.news-card {
+  flex: 0 0 calc(33.333% - 20px);
+  background: var(--blanc);
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  scroll-snap-align: start;
+  min-width: 350px;
+}
+
+.news-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+.news-image {
+  position: relative;
+  height: 220px;
+  overflow: hidden;
+}
+
+.news-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.news-card:hover .news-image img {
+  transform: scale(1.05);
+}
+
+.news-date {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background: var(--rouge-gradient);
+  color: var(--blanc);
+  padding: 8px 15px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  z-index: 2;
+}
+
+.news-content {
+  padding: 25px;
+}
+
+.news-title {
+  color: var(--bleu-nuit);
+  font-size: 1.3rem;
+  margin-bottom: 12px;
+  font-weight: 600;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.news-excerpt {
+  color: var(--gris-moyen);
+  line-height: 1.6;
+  margin-bottom: 20px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.news-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--bleu-clair);
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  font-size: 0.95rem;
+}
+
+.news-link:hover {
+  color: var(--bleu-nuit);
+  gap: 12px;
+}
+
+.news-link i {
+  font-size: 0.8rem;
+  transition: transform 0.3s ease;
+}
+
+.news-link:hover i {
+  transform: translateX(3px);
+}
+
+/* Contrôles du carrousel */
+.carousel-controls {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: space-between;
+  pointer-events: none;
+  z-index: 3;
+}
+
+.carousel-btn {
+  background: var(--blanc);
+  border: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  pointer-events: all;
+  color: var(--bleu-nuit);
+  font-size: 1.1rem;
+}
+
+.carousel-btn:hover {
+  background: var(--bleu-clair);
+  color: var(--blanc);
+  transform: scale(1.1);
+  box-shadow: 0 8px 20px rgba(63, 81, 181, 0.4);
+}
+
+.carousel-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.carousel-btn:disabled:hover {
+  background: var(--blanc);
+  color: var(--bleu-nuit);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Bouton "Toutes nos actualités" */
+.news-button {
+  text-align: center;
+  margin-top: 30px;
+}
+
+/* Indicateurs de défilement */
+.carousel-indicators {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 30px;
+}
+
+.carousel-indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--gris-tres-clair);
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.carousel-indicator.active {
+  background: var(--bleu-clair);
+  transform: scale(1.2);
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .news-card {
+    flex: 0 0 calc(50% - 15px);
+    min-width: 300px;
+  }
+}
+
+@media (max-width: 768px) {
+  .news-carousel {
+    padding: 0 40px;
+  }
+
+  .news-card {
+    flex: 0 0 calc(100% - 10px);
+    min-width: 280px;
+  }
+
+  .carousel-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
+
+  .section-title h2 {
+    font-size: 2rem;
+  }
+
+  .news-title {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .news-carousel {
+    padding: 0 20px;
+  }
+
+  .carousel-controls {
+    display: none;
+  }
+
+  .news-container {
+    gap: 20px;
+  }
+
+  .news-content {
+    padding: 20px;
+  }
+}
+
+/* Animation pour le chargement */
+.news-card {
+  animation: fadeInUp 0.6s ease;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Section Newsletter */
+.newsletter-section {
+  background: linear-gradient(
+    135deg,
+    var(--bleu-nuit) 0%,
+    var(--bleu-clair) 100%
+  );
+  padding: 60px 0;
+  color: var(--blanc);
+}
+
+.newsletter-content {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.newsletter-content h2 {
+  font-size: 2.2rem;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.newsletter-content p {
+  font-size: 1.1rem;
+  margin-bottom: 30px;
+  opacity: 0.9;
+}
+
+.newsletter-form {
+  display: flex;
+  gap: 15px;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.newsletter-form input {
+  flex: 1;
+  padding: 15px 20px;
+  border: none;
+  border-radius: 25px;
+  font-size: 1rem;
+  background: rgba(255, 255, 255, 0.95);
+  color: var(--gris-fonce);
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.newsletter-form input:focus {
+  background: var(--blanc);
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3);
+}
+
+.newsletter-form button {
+  padding: 15px 30px;
+  border: none;
+  border-radius: 25px;
+  background: var(--rouge-gradient);
+  color: var(--blanc);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.newsletter-form button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(183, 28, 28, 0.4);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .page-banner {
+    padding: 60px 0 40px;
+  }
+
+  .banner-content h1 {
+    font-size: 2.2rem;
+  }
+
+  .banner-content p {
+    font-size: 1.1rem;
+  }
+
+  .actualites-filters h2 {
+    font-size: 1.7rem;
+  }
+
+  .filter-buttons {
+    gap: 10px;
+  }
+
+  .filter-btn {
+    padding: 10px 18px;
+    font-size: 0.9rem;
+  }
+
+  .actualites-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .actualite-meta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .newsletter-form {
+    flex-direction: column;
+  }
+
+  .newsletter-form input,
+  .newsletter-form button {
+    width: 100%;
+  }
+
+  .actualites-pagination {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .pagination-numbers {
+    order: -1;
+  }
+}
+
+@media (max-width: 576px) {
+  .page-banner {
+    padding: 50px 0 30px;
+  }
+
+  .banner-content h1 {
+    font-size: 1.8rem;
+  }
+
+  .actualites-main {
+    padding: 40px 0;
+  }
+
+  .actualites-filters h2 {
+    font-size: 1.5rem;
+  }
+
+  .actualite-content {
+    padding: 20px;
+  }
+
+  .actualite-title {
+    font-size: 1.2rem;
+  }
+}
+
+/* Animation pour le filtrage */
+.actualite-card {
+  animation: fadeInUp 0.6s ease;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Styles pour les cartes cachées par le filtrage */
+.actualite-card.hidden {
+  display: none;
+}
+
+/* Amélioration de l'accessibilité */
+@media (prefers-reduced-motion: reduce) {
+  .actualite-card,
+  .filter-btn,
+  .pagination-btn,
+  .actualite-link,
+  .newsletter-form button {
+    transition: none;
+  }
+
+  .actualite-card:hover .actualite-image img {
+    transform: none;
+  }
+}
+
+/* Focus styles pour l'accessibilité */
+.filter-btn:focus,
+.pagination-btn:focus,
+.pagination-number:focus,
+.newsletter-form input:focus,
+.newsletter-form button:focus,
+.actualite-link:focus {
+  outline: 2px solid var(--bleu-clair);
+  outline-offset: 2px;
+}
