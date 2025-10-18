@@ -96,8 +96,8 @@ document.addEventListener('DOMContentLoaded', function() {
         downloadBtn.style.background = 'var(--rouge-gradient)';
         downloadBtn.disabled = true;
         
-        // TÉLÉCHARGEMENT RÉEL - Méthode directe
-        // Créer un lien invisible et déclencher le click
+        // TÉLÉCHARGEMENT 
+     
         const tempLink = document.createElement('a');
         tempLink.href = fileUrl;
         tempLink.setAttribute('download', ''); // Force le téléchargement

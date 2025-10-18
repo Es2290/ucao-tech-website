@@ -10,6 +10,7 @@
     <!-- Lien vers la feuille de style externe -->
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/egei.css">
+    
 </head>
 <body>
     <!-- Header supérieur -->
@@ -62,15 +63,12 @@
                                 <li><a href="faqs.php">FAQs</a></li>
                             </ul>
                         </li>
-                        
                     </ul>
                 </nav>
             </div>
         </div>
     </header>
 
-    <!-- ################################### Contenu de la page #################################### -->
-    
     <!-- Bannière EGEI -->
     <section class="page-banner">
         <div class="container">
@@ -115,7 +113,7 @@
     <section class="connection">
         <div class="container">
             <div class="section-title">
-                <h2>Lien entre EGEI et UCAO-TECH</h2>
+                <h2>Liens entre EGEI et UCAO-TECH</h2>
             </div>
             <div class="connection-content">
                 <div class="connection-image">
@@ -137,8 +135,7 @@
         </div>
     </section>
 
-    
-   <!-- Section Formations -->
+    <!-- Section Formations -->
     <section class="formations">
         <div class="container">
             <div class="section-title">
@@ -242,23 +239,23 @@
         </div>
     </section>
 
-    <!-- Section Direction EGEI avec Photos -->
+    <!-- Section Direction EGEI avec Slider Horizontal -->
     <section class="direction">
         <div class="container">
             <div class="section-title">
                 <h2>Direction de l'EGEI</h2>
             </div>
             
-            <div class="direction-cards-slider">
-                <div class="cards-container">
+            <div class="direction-slider-container">
+                <div class="direction-cards-slider" id="directionSlider">
                     <!-- Directeur -->
                     <div class="direction-card-slide">
                         <div class="member-photo-container">
                             <div class="member-photo">
-                                <img src="media/staff/directeur-egei.jpg" alt="Dr Sossou HOUNDEDAKO" onerror="this.src='media/staff/default-avatar.jpg'">
-                                <div class="photo-overlay">
+                                <img src="" alt="Dr Sossou HOUNDEDAKO">
+                                <!-- <div class="photo-overlay">
                                     <i class="fas fa-user-tie"></i>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                         <div class="card-header">
@@ -268,11 +265,6 @@
                             </div>
                         </div>
                         <div class="card-body">
-                            <p class="member-bio">
-                                Docteur en Génie Électrique avec une expertise reconnue dans le domaine des télécommunications 
-                                et des systèmes électroniques. Fort d'une longue expérience académique et industrielle, 
-                                il dirige l'EGEI avec une vision stratégique pour l'excellence pédagogique.
-                            </p>
                             <div class="member-contact">
                                 <p><i class="fas fa-phone"></i> (+229) 95967114</p>
                                 <p><i class="fas fa-envelope"></i> s.houndedako@ucaobenin.org</p>
@@ -284,10 +276,10 @@
                     <div class="direction-card-slide">
                         <div class="member-photo-container">
                             <div class="member-photo">
-                                <img src="media/staff/directeur-adjoint-egei.jpg" alt="Dr Carlos AGOSSOU" onerror="this.src='media/staff/default-avatar.jpg'">
-                                <div class="photo-overlay">
+                                <img src=" "alt="Dr Carlos AGOSSOU">
+                                <!-- <div class="photo-overlay">
                                     <i class="fas fa-user-graduate"></i>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                         <div class="card-header">
@@ -297,11 +289,6 @@
                             </div>
                         </div>
                         <div class="card-body">
-                            <p class="member-bio">
-                                Spécialiste en informatique industrielle et systèmes embarqués. 
-                                Il apporte son expertise technique et pédagogique pour accompagner 
-                                le développement des programmes de formation et la recherche appliquée.
-                            </p>
                             <div class="member-contact">
                                 <p><i class="fas fa-phone"></i> (+229) 97144668</p>
                                 <p><i class="fas fa-envelope"></i> c.agossou@ucaobenin.org</p>
@@ -313,10 +300,10 @@
                     <div class="direction-card-slide">
                         <div class="member-photo-container">
                             <div class="member-photo">
-                                <img src="media/staff/secretaire-egei.jpg" alt="M. Aristide GOUBIYI" onerror="this.src='media/staff/default-avatar.jpg'">
-                                <div class="photo-overlay">
+                                <img src="" alt="M. Aristide GOUBIYI">
+                                <!-- <div class="photo-overlay">
                                     <i class="fas fa-user-cog"></i>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                         <div class="card-header">
@@ -326,11 +313,6 @@
                             </div>
                         </div>
                         <div class="card-body">
-                            <p class="member-bio">
-                                Garant du bon fonctionnement administratif de l'école. 
-                                Il coordonne les activités administratives, l'accueil des étudiants 
-                                et assure le lien entre la direction, le corps professoral et les étudiants.
-                            </p>
                             <div class="member-contact">
                                 <p><i class="fas fa-phone"></i> (+229) 97144668 / 95615247</p>
                                 <p><i class="fas fa-envelope"></i> a.goubiyi@ucaobenin.org</p>
@@ -343,10 +325,10 @@
                     <div class="direction-card-slide">
                         <div class="member-photo-container">
                             <div class="member-photo">
-                                <img src="media/staff/prefet-egei.jpg" alt="M. Vivien de SOUZA" onerror="this.src='media/staff/default-avatar.jpg'">
-                                <div class="photo-overlay">
+                                <img src="" alt="M. Vivien de SOUZA">
+                                <!-- <div class="photo-overlay">
                                     <i class="fas fa-user-shield"></i>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                         <div class="card-header">
@@ -356,11 +338,6 @@
                             </div>
                         </div>
                         <div class="card-body">
-                            <p class="member-bio">
-                                Responsable de la vie estudiantine et du respect du règlement intérieur. 
-                                Il veille au maintien de l'ordre et de la discipline, et accompagne 
-                                les étudiants dans leur épanouissement académique et personnel.
-                            </p>
                             <div class="member-contact">
                                 <p><i class="fas fa-phone"></i> (+229) 95403244</p>
                                 <p><i class="fas fa-envelope"></i> v.desouza@ucaobenin.org</p>
@@ -370,20 +347,18 @@
                     </div>
                 </div>
                 
-                <div class="slider-controls">
-                    <button class="slider-btn prev-btn">
+                <!-- <div class="slider-controls">
+                    <button class="slider-btn prev-btn" id="prevBtn">
                         <i class="fas fa-chevron-left"></i>
                     </button>
                     <div class="slider-dots">
                         <span class="dot active" data-index="0"></span>
                         <span class="dot" data-index="1"></span>
-                        <span class="dot" data-index="2"></span>
-                        <span class="dot" data-index="3"></span>
                     </div>
-                    <button class="slider-btn next-btn">
+                    <button class="slider-btn next-btn" id="nextBtn">
                         <i class="fas fa-chevron-right"></i>
                     </button>
-                </div>
+                </div> -->
             </div>
             
             <!-- Informations supplémentaires -->
@@ -482,5 +457,7 @@
     <!-- Lien vers le fichier JavaScript externe -->
     <script src="js/script.js"></script>
     <script src="js/egei.js"></script>
+        
+   
 </body>
 </html>

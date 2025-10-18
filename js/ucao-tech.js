@@ -3,7 +3,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Animation des éléments au défilement
     const animateOnScroll = function() {
-        const elements = document.querySelectorAll('.club-card, .objective-item, .presentation-image, .objectives-image');
+        const elements = document.querySelectorAll('.club-card, .objective-item, .benefit-card, .presentation-image');
         
         elements.forEach(element => {
             const elementPosition = element.getBoundingClientRect().top;
@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Initialiser les styles pour l'animation
     const initAnimationStyles = function() {
-        const elements = document.querySelectorAll('.club-card, .objective-item, .presentation-image, .objectives-image');
+        const elements = document.querySelectorAll('.club-card, .objective-item, .benefit-card, .presentation-image');
         
         elements.forEach(element => {
             element.style.opacity = '0';
@@ -51,16 +51,20 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Animation des icônes des clubs au survol
-    const clubIcons = document.querySelectorAll('.club-icon');
+    // Animation des cartes au survol
+    const benefitCards = document.querySelectorAll('.benefit-card');
+    const clubCards = document.querySelectorAll('.club-card');
     
-    clubIcons.forEach(icon => {
-        icon.addEventListener('mouseenter', function() {
-            this.style.transform = 'rotate(15deg) scale(1.1)';
+    // Combiner toutes les cartes pour les animations de survol
+    const allCards = [...benefitCards, ...clubCards];
+    
+    allCards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-10px)';
         });
         
-        icon.addEventListener('mouseleave', function() {
-            this.style.transform = 'rotate(0) scale(1)';
+        card.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0)';
         });
     });
     
@@ -83,6 +87,19 @@ document.addEventListener('DOMContentLoaded', function() {
             if (target !== '#') {
                 smoothScroll(target);
             }
+        });
+    });
+    
+    // Animation spécifique pour les icônes des bénéfices
+    const benefitIcons = document.querySelectorAll('.benefit-icon');
+    
+    benefitIcons.forEach(icon => {
+        icon.addEventListener('mouseenter', function() {
+            this.style.transform = 'rotate(15deg) scale(1.1)';
+        });
+        
+        icon.addEventListener('mouseleave', function() {
+            this.style.transform = 'rotate(0) scale(1)';
         });
     });
 });

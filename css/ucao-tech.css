@@ -312,7 +312,6 @@ body {
 .presentation-image {
     border-radius: 15px;
     overflow: hidden;
-    
     position: relative;
     transition: all 0.4s ease;
 }
@@ -351,7 +350,7 @@ body {
     transform: scale(1.05);
 }
 
-/* Section Pourquoi Nous Rejoindre */
+/* Section Pourquoi Nous Rejoindre - 4 cartes par ligne */
 .why-join {
     padding: 100px 0;
     background: var(--blanc);
@@ -359,17 +358,23 @@ body {
 
 .benefits-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
+    grid-template-columns: repeat(4, 1fr); /* 4 colonnes fixes */
+    gap: 25px;
+    margin: 0 auto;
+    max-width: 1200px;
 }
 
 .benefit-card {
     background: var(--gris-clair);
-    padding: 40px 30px;
+    padding: 30px 20px;
     border-radius: 15px;
     text-align: center;
     transition: all 0.3s ease;
     border-left: 4px solid var(--bleu-nuit);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
 }
 
 .benefit-card:hover {
@@ -390,6 +395,7 @@ body {
     color: var(--blanc);
     font-size: 1.8rem;
     transition: all 0.3s ease;
+    flex-shrink: 0;
 }
 
 .benefit-card:hover .benefit-icon {
@@ -400,15 +406,19 @@ body {
 .benefit-card h3 {
     color: var(--bleu-nuit);
     margin-bottom: 15px;
-    font-size: 1.4rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    line-height: 1.3;
 }
 
 .benefit-card p {
     color: var(--gris-fonce);
-    line-height: 1.6;
+    line-height: 1.5;
+    font-size: 0.9rem;
+    flex: 1;
 }
 
-/* Section Clubs améliorée - FOND TRANSPARENT POUR LES LOGOS */
+/* Section Clubs - 4 cartes par ligne */
 .clubs {
     padding: 100px 0;
     background: var(--blanc);
@@ -427,11 +437,13 @@ body {
 
 .clubs-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
+    grid-template-columns: repeat(4, 1fr); /* 4 colonnes fixes */
+    gap: 25px;
+    margin: 0 auto;
+    max-width: 1200px;
 }
 
-/* Styles pour les images des clubs - FOND TRANSPARENT */
+/* Styles pour les images des clubs */
 .club-card {
     background: var(--blanc);
     border-radius: 15px;
@@ -476,7 +488,6 @@ body {
     border-radius: 15px 15px 0 0;
     overflow: hidden;
     margin-bottom: 15px;
-    /* Fond transparent supprimé */
     background: transparent !important;
     display: flex;
     align-items: center;
@@ -494,22 +505,22 @@ body {
     filter: grayscale(0.3);
 }
 
-/* Overlay supprimé - pas de fond bleu */
 .club-overlay {
-    display: none; /* Overlay complètement supprimé */
+    display: none;
 }
 
 .club-card:hover .club-image img {
-    transform: scale(1.15) rotate(5deg); /* Animation plus visible */
+    transform: scale(1.15) rotate(5deg);
     filter: grayscale(0) drop-shadow(0 5px 15px rgba(0,0,0,0.2));
 }
 
 .club-card h3 {
     color: var(--bleu-nuit);
-    margin: 15px 25px 10px 25px;
-    font-size: 1.4rem;
+    margin: 15px 20px 10px 20px;
+    font-size: 1.3rem;
     font-weight: 600;
     transition: color 0.3s ease;
+    line-height: 1.3;
 }
 
 .club-card:hover h3 {
@@ -518,39 +529,10 @@ body {
 
 .club-card p {
     color: var(--gris-fonce);
-    line-height: 1.6;
-    font-size: 0.95rem;
-    margin: 0 25px 15px 25px;
+    line-height: 1.5;
+    font-size: 0.9rem;
+    margin: 0 20px 15px 20px;
     flex: 1;
-}
-
-/* Boutons des clubs */
-/* .club-btn {
-    display: inline-block;
-    margin: 0 25px;
-    padding: 8px 18px;
-    background: var(--bleu-clair);
-    color: var(--blanc);
-    text-decoration: none;
-    border-radius: 20px;
-    font-size: 0.85rem;
-    font-weight: 500;
-    transition: all 0.3s ease;
-}
-
-.club-btn:hover {
-    background: var(--rouge-nuit);
-    transform: translateY(-2px);
-} */
-
-/* Fallback transparent si les images ne se chargent pas */
-.club-image::before {
-    content: attr(data-fallback);
-    color: var(--bleu-nuit); /* Couleur changée pour être visible */
-    font-size: 2.5rem;
-    position: absolute;
-    z-index: 1;
-    opacity: 0.3;
 }
 
 /* Section Objectifs améliorée */
@@ -675,473 +657,7 @@ body {
 .cta-buttons {
     display: flex;
     gap: 15px;
+    margin-bottom: 50px;
     justify-content: center;
-    flex-wrap: wrap;
-    margin-bottom: 30px;
 }
 
-.cta-features {
-    display: flex;
-    gap: 25px;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-.feature {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 1rem;
-}
-
-.feature i {
-    color: var(--rouge-clair);
-}
-
-/* Section Événements */
-.events {
-    padding: 80px 0;
-    background: var(--gris-clair);
-}
-
-.events-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 25px;
-}
-
-.event-card {
-    background: var(--blanc);
-    border-radius: 12px;
-    padding: 25px;
-    display: flex;
-    gap: 15px;
-    box-shadow: var(--shadow);
-    transition: all 0.3s ease;
-}
-
-.event-card:hover {
-    transform: translateY(-8px);
-    box-shadow: var(--shadow-hover);
-}
-
-.event-date {
-    background: var(--rouge-gradient);
-    color: var(--blanc);
-    padding: 12px;
-    border-radius: 8px;
-    text-align: center;
-    min-width: 70px;
-    flex-shrink: 0;
-}
-
-.event-date .day {
-    display: block;
-    font-size: 1.8rem;
-    font-weight: 700;
-    line-height: 1;
-}
-
-.event-date .month {
-    display: block;
-    font-size: 1rem;
-    font-weight: 500;
-}
-
-.event-content {
-    flex: 1;
-}
-
-.event-content h3 {
-    color: var(--bleu-nuit);
-    margin-bottom: 8px;
-    font-size: 1.2rem;
-}
-
-.event-content p {
-    color: var(--gris-fonce);
-    margin-bottom: 12px;
-    line-height: 1.4;
-    font-size: 0.9rem;
-}
-
-.event-meta {
-    display: flex;
-    gap: 12px;
-    margin-bottom: 12px;
-    flex-wrap: wrap;
-}
-
-.event-meta span {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    color: var(--gris-fonce);
-    font-size: 0.85rem;
-}
-
-.event-meta i {
-    color: var(--bleu-clair);
-}
-
-.event-btn {
-    display: inline-block;
-    padding: 7px 16px;
-    background: var(--bleu-clair);
-    color: var(--blanc);
-    text-decoration: none;
-    border-radius: 18px;
-    font-size: 0.85rem;
-    font-weight: 500;
-    transition: all 0.3s ease;
-}
-
-.event-btn:hover {
-    background: var(--rouge-nuit);
-    transform: translateY(-2px);
-}
-
-/* Footer amélioré */
-.footer {
-    background: var(--bleu-gradient);
-    color: var(--blanc);
-    padding: 50px 0 15px;
-}
-
-.footer-content {
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1.5fr;
-    gap: 30px;
-    margin-bottom: 30px;
-}
-
-.footer-column h3 {
-    color: var(--blanc);
-    margin-bottom: 20px;
-    font-size: 1.3rem;
-    font-weight: 600;
-    position: relative;
-    padding-bottom: 8px;
-}
-
-.footer-column h3::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 35px;
-    height: 2px;
-    background: var(--rouge-clair);
-    border-radius: 2px;
-}
-
-.footer-logo img {
-    max-width: 100px;
-    margin-bottom: 15px;
-}
-
-.footer-slogan {
-    font-style: italic;
-    margin-bottom: 20px;
-    font-size: 1rem;
-    opacity: 0.9;
-}
-
-.footer-social {
-    display: flex;
-    gap: 12px;
-}
-
-.footer-social a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 35px;
-    height: 35px;
-    background: rgba(255,255,255,0.1);
-    border-radius: 50%;
-    color: var(--blanc);
-    transition: all 0.3s ease;
-}
-
-.footer-social a:hover {
-    background: var(--rouge-clair);
-    transform: translateY(-2px);
-}
-
-.footer-links li {
-    margin-bottom: 10px;
-}
-
-.footer-links a {
-    color: rgba(255,255,255,0.8);
-    transition: all 0.3s ease;
-    position: relative;
-    padding-left: 12px;
-}
-
-.footer-links a::before {
-    content: '›';
-    position: absolute;
-    left: 0;
-    transition: transform 0.3s ease;
-}
-
-.footer-links a:hover {
-    color: var(--blanc);
-    padding-left: 16px;
-}
-
-.footer-links a:hover::before {
-    transform: translateX(4px);
-}
-
-.footer-contact li {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 12px;
-    color: rgba(255,255,255,0.9);
-}
-
-.footer-contact i {
-    color: var(--rouge-clair);
-    width: 18px;
-    text-align: center;
-}
-
-.footer-bottom {
-    border-top: 1px solid rgba(255,255,255,0.1);
-    padding-top: 15px;
-    text-align: center;
-    color: rgba(255,255,255,0.7);
-    font-size: 0.9rem;
-}
-
-.footer-bottom a {
-    color: var(--rouge-clair);
-    font-weight: 600;
-    transition: color 0.3s ease;
-}
-
-.footer-bottom a:hover {
-    color: var(--blanc);
-    text-decoration: underline;
-}
-
-/* Responsive Design amélioré */
-@media (max-width: 1200px) {
-    .banner-content h1 {
-        font-size: 3.2rem;
-    }
-    
-    .section-header h2 {
-        font-size: 2.2rem;
-    }
-    
-    .objectives-grid {
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    }
-}
-
-@media (max-width: 992px) {
-    .presentation-content {
-        grid-template-columns: 1fr;
-        gap: 40px;
-    }
-    
-    .objectives-grid {
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    }
-    
-    .footer-content {
-        grid-template-columns: 1fr 1fr;
-        gap: 30px;
-    }
-    
-    .banner-content h1 {
-        font-size: 2.5rem;
-    }
-    
-    .banner-motto {
-        flex-direction: column;
-        gap: 15px;
-        align-items: center;
-    }
-    
-    .banner-motto span {
-        width: 180px;
-        font-size: 1.1rem;
-        padding: 10px 20px;
-    }
-}
-
-@media (max-width: 768px) {
-    .banner {
-        padding: 60px 0;
-    }
-    
-    .banner-content h1 {
-        font-size: 2rem;
-    }
-    
-    .banner-subtitle {
-        font-size: 1.1rem;
-    }
-    
-    .section-header h2 {
-        font-size: 1.8rem;
-    }
-    
-    .clubs-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .objectives-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
-    }
-    
-    .objective-item {
-        padding: 20px 15px;
-        text-align: left;
-        flex-direction: row;
-        align-items: flex-start;
-    }
-    
-    .objective-content {
-        text-align: left;
-    }
-    
-    .footer-content {
-        grid-template-columns: 1fr;
-    }
-    
-    .presentation, .clubs, .objectives {
-        padding: 60px 0;
-    }
-    
-    /* Responsive pour les nouvelles sections */
-    .banner-actions {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .btn {
-        width: 220px;
-        justify-content: center;
-        padding: 12px 25px;
-        font-size: 1rem;
-    }
-    
-    .presentation-stats {
-        flex-direction: column;
-        gap: 15px;
-    }
-    
-    .benefits-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .cta-buttons {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .cta-features {
-        flex-direction: column;
-        gap: 12px;
-    }
-    
-    .events-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .event-card {
-        flex-direction: column;
-        text-align: center;
-    }
-    
-    .event-meta {
-        justify-content: center;
-    }
-    
-    /* Responsive pour les images de clubs */
-    .club-image {
-        height: 140px;
-    }
-    
-    .club-image img {
-        max-width: 100px;
-        max-height: 100px;
-    }
-}
-
-@media (max-width: 480px) {
-    .banner-content h1 {
-        font-size: 1.8rem;
-    }
-    
-    .banner-subtitle {
-        font-size: 1rem;
-    }
-    
-    .section-header h2 {
-        font-size: 1.6rem;
-    }
-    
-    .club-card, .objective-item {
-        padding: 20px 15px;
-    }
-    
-    .objective-item {
-        flex-direction: column;
-        text-align: center;
-        align-items: center;
-    }
-    
-    .objective-content {
-        text-align: center;
-    }
-    
-    .club-card h3 {
-        margin: 12px 20px 8px 20px;
-        font-size: 1.3rem;
-    }
-    
-    .club-card p {
-        margin: 0 20px 12px 20px;
-        font-size: 0.9rem;
-    }
-    
-    .club-card .club-btn {
-        margin: 0 20px;
-    }
-    
-    .club-image {
-        height: 120px;
-    }
-    
-    .club-image img {
-        max-width: 80px;
-        max-height: 80px;
-    }
-    
-    .cta-content h2 {
-        font-size: 1.8rem;
-    }
-    
-    .cta-content p {
-        font-size: 1rem;
-    }
-    
-    .event-card {
-        padding: 20px;
-    }
-    
-    .banner-motto span {
-        width: 160px;
-        font-size: 1rem;
-        padding: 8px 16px;
-    }
-}
