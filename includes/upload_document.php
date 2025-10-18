@@ -99,14 +99,14 @@ if (!in_array($file_extension, $allowed_types)) {
 }
 
 // Taille maximale (10MB)
-$max_size = 10 * 1024 * 1024;
-if ($file['size'] > $max_size) {
-    echo json_encode([
-        'success' => false,
-        'error' => 'Fichier trop volumineux. Taille maximale: 10MB'
-    ]);
-    exit;
-}
+// $max_size = 10 * 1024 * 1024;
+//if ($file['size'] > $max_size) {
+ //   echo json_encode([
+  //      'success' => false,
+    //    'error' => 'Fichier trop volumineux. Taille maximale: 10MB'
+ //   ]);
+ //   exit;
+//}
 
 // Générer un nom de fichier sécurisé
 $safe_title = preg_replace('/[^a-zA-Z0-9-_]/', '_', $title);
@@ -125,8 +125,8 @@ if (move_uploaded_file($file['tmp_name'], $filepath)) {
         'filename' => $filename,
         'filepath' => $filepath,
         'title' => $title,
-        'category' => $category,
-        'size' => round($file['size'] / 1024 / 1024, 2) . ' MB'
+        'category' => $category
+     //   'size' => round($file['size'] / 1024 / 1024, 2) . ' MB'
     ]);
 } else {
     echo json_encode([
