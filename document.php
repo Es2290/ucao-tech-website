@@ -103,10 +103,11 @@
                     
                     <select id="year-filter">
                         <option value="all">Toutes les années</option>
+                        <option value = "2025"> 2025 </option>
                         <option value="2024">2024</option>
                         <option value="2023">2023</option>
-                        <option value="2022">2022</option>
-                        <option value="2021">2021</option>
+                        
+                        
                     </select>
                 </div>
             </div>
@@ -206,10 +207,10 @@
                         'titre' => 'Présentation UCAO TECH 2024',
                         'categorie' => 'presentations',
                         'annee' => '',
-                        'type_fichier' => 'pptx',
-                        'taille' => '8.9 MB',
+                        'type_fichier' => 'pdf',
+                        'taille' => '',
                         'date_publication' => '',
-                        'auteur' => 'Bureau Communication',
+                        'auteur' => 'Bureau Exécutif',
                         'description' => 'Présentation officielle de l\'association pour les événements et partenariats 2024.',
                         'fichier' => 'media/documents/UCAO TECH ASSOCIATION.pdf',
                         'telechargements' => 10,
