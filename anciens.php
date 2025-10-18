@@ -51,6 +51,7 @@
                                 <li><a href="anciens.php">Anciens Membres</a></li>
                             </ul>
                         </li>
+                        <li><a href="actualites.php">Actualités</a></li>
                         <li><a href="document.php">Documents</a></li>
                         <li><a href="galerie.php">Galerie</a></li>
                         <li class="dropdown">

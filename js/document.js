@@ -1,7 +1,7 @@
 // Script pour la page documents
 document.addEventListener('DOMContentLoaded', function() {
     
-    // Éléments DOM
+    
     const searchInput = document.getElementById('search-input');
     const searchBtn = document.getElementById('search-btn');
     const categoryFilter = document.getElementById('category-filter');
@@ -9,16 +9,16 @@ document.addEventListener('DOMContentLoaded', function() {
     const documentsContainer = document.getElementById('documents-container');
     const documentCards = document.querySelectorAll('.document-card');
     
-    // Statistiques
+    // Stats
     const totalDocs = document.getElementById('total-docs');
     const totalDownloads = document.getElementById('total-downloads');
     const activeUsers = document.getElementById('active-users');
     
     // Initialiser les statistiques
     function initStats() {
-        if (totalDocs) animateValue(totalDocs, 0, 10, 1500);
-        if (totalDownloads) animateValue(totalDownloads, 0, 1124, 2000);
-        if (activeUsers) animateValue(activeUsers, 0, 156, 1000);
+        if (totalDocs) animateValue(totalDocs, 0, 10, 100);
+        if (totalDownloads) animateValue(totalDownloads, 0, 10, 50);
+        if (activeUsers) animateValue(activeUsers, 0, 25, 50);
     }
     
     function animateValue(element, start, end, duration) {
@@ -73,56 +73,102 @@ document.addEventListener('DOMContentLoaded', function() {
     categoryFilter.addEventListener('change', filterDocuments);
     yearFilter.addEventListener('change', filterDocuments);
     
-    // Téléchargement de document
+    // Téléchargement de document - VERSION PRODUCTION
     function handleDownload(event) {
         event.preventDefault();
-        const docId = this.getAttribute('data-doc-id');
-        const docTitle = this.closest('.document-card').querySelector('.document-title').textContent;
+        const downloadBtn = this;
+        const docId = downloadBtn.getAttribute('data-doc-id');
+        const docTitle = downloadBtn.closest('.document-card').querySelector('.document-title').textContent;
+        const fileUrl = downloadBtn.getAttribute('href');
         
-        // Simulation d'incrémentation des téléchargements
-        const downloadCount = this.closest('.document-card').querySelector('.info-item:last-child span');
+        // Vérifier si l'URL du fichier existe
+        if (!fileUrl || fileUrl === '#') {
+            alert('Le fichier n\'est pas disponible pour le moment.');
+            return;
+        }
+        
+        // Sauvegarder le contenu original du bouton
+        const originalHTML = downloadBtn.innerHTML;
+        const originalBackground = downloadBtn.style.background;
+        
+        // Animation de confirmation
+        downloadBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Téléchargement...';
+        downloadBtn.style.background = 'var(--rouge-gradient)';
+        downloadBtn.disabled = true;
+        
+        // TÉLÉCHARGEMENT RÉEL - Méthode directe
+        // Créer un lien invisible et déclencher le click
+        const tempLink = document.createElement('a');
+        tempLink.href = fileUrl;
+        tempLink.setAttribute('download', ''); // Force le téléchargement
+        tempLink.style.display = 'none';
+        
+        document.body.appendChild(tempLink);
+        tempLink.click();
+        document.body.removeChild(tempLink);
+        
+        // Incrémentation des téléchargements (côté client seulement)
+        const downloadCount = downloadBtn.closest('.document-card').querySelector('.info-item:last-child span');
         if (downloadCount) {
-            const currentCount = parseInt(downloadCount.textContent);
+            const currentCount = parseInt(downloadCount.textContent) || 0;
             downloadCount.textContent = (currentCount + 1) + ' téléchargements';
         }
         
         // Mettre à jour le compteur global
         if (totalDownloads) {
-            const globalCount = parseInt(totalDownloads.textContent);
+            const globalCount = parseInt(totalDownloads.textContent) || 0;
             totalDownloads.textContent = globalCount + 1;
         }
         
-        // Animation de confirmation
-        this.innerHTML = '<i class="fas fa-check"></i> Téléchargé !';
-        this.style.background = 'var(--rouge-gradient)';
+        // Log simple (pas besoin de PHP pour l'instant)
+        console.log(`📥 Document téléchargé: ${docTitle} (ID: ${docId})`);
         
+        // Réinitialiser le bouton après succès
         setTimeout(() => {
-            this.innerHTML = '<i class="fas fa-download"></i> Télécharger';
-            this.style.background = 'var(--bleu-gradient)';
+            downloadBtn.innerHTML = '<i class="fas fa-check"></i> Téléchargé !';
             
-            // Redirection vers le fichier (décommenter en production)
-            // window.location.href = this.href;
-        }, 2000);
-        
-        // Log de téléchargement (à envoyer au serveur en production)
-        console.log(`Document ${docId} (${docTitle}) téléchargé`);
+            // Réinitialiser complètement après 3 secondes
+            setTimeout(() => {
+                downloadBtn.innerHTML = originalHTML;
+                downloadBtn.style.background = originalBackground;
+                downloadBtn.disabled = false;
+            }, 3000);
+            
+        }, 1000);
     }
     
     // Aperçu de document
     function handlePreview(event) {
         event.preventDefault();
-        const docId = this.getAttribute('data-doc-id');
-        const docTitle = this.closest('.document-card').querySelector('.document-title').textContent;
+        const previewBtn = this;
+        const docId = previewBtn.getAttribute('data-doc-id');
+        const docTitle = previewBtn.closest('.document-card').querySelector('.document-title').textContent;
+        const fileUrl = previewBtn.closest('.document-card').querySelector('.btn-download').getAttribute('href');
         
-        // Simulation d'aperçu (à remplacer par une vraie fonctionnalité)
-        this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Chargement...';
-        this.disabled = true;
+        // Sauvegarder le contenu original
+        const originalHTML = previewBtn.innerHTML;
         
-        setTimeout(() => {
-            this.innerHTML = '<i class="fas fa-eye"></i> Aperçu';
-            this.disabled = false;
-            alert(`Aperçu du document: ${docTitle}\n\nCette fonctionnalité afficherait normalement un aperçu du document PDF.`);
-        }, 1500);
+        // Simulation d'aperçu
+        previewBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Chargement...';
+        previewBtn.disabled = true;
+        
+        // Vérifier si c'est un PDF (pour l'aperçu)
+        if (fileUrl && fileUrl.toLowerCase().endsWith('.pdf')) {
+            // Ouvrir le PDF dans un nouvel onglet
+            window.open(fileUrl, '_blank');
+            
+            setTimeout(() => {
+                previewBtn.innerHTML = originalHTML;
+                previewBtn.disabled = false;
+            }, 1000);
+        } else {
+            // Pour les autres types de fichiers, afficher un message
+            setTimeout(() => {
+                previewBtn.innerHTML = originalHTML;
+                previewBtn.disabled = false;
+                alert(`Aperçu du document: ${docTitle}\n\nL'aperçu n'est disponible que pour les fichiers PDF.`);
+            }, 1500);
+        }
     }
     
     // Événements des boutons
@@ -143,24 +189,58 @@ document.addEventListener('DOMContentLoaded', function() {
             const formData = new FormData(this);
             const uploadBtn = this.querySelector('.btn-upload');
             
+            // Sauvegarder le contenu original
+            const originalHTML = uploadBtn.innerHTML;
+            const originalBackground = uploadBtn.style.background;
+            
             // Simulation d'upload
             uploadBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Publication...';
             uploadBtn.disabled = true;
             
-            setTimeout(() => {
-                uploadBtn.innerHTML = '<i class="fas fa-check"></i> Publié !';
-                uploadBtn.style.background = 'var(--rouge-gradient)';
-                
-                // Réinitialiser le formulaire
-                setTimeout(() => {
-                    this.reset();
-                    uploadBtn.innerHTML = '<i class="fas fa-upload"></i> Publier le document';
+            // Envoyer le fichier au serveur
+            fetch('includes/upload_document.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    uploadBtn.innerHTML = '<i class="fas fa-check"></i> Publié !';
                     uploadBtn.style.background = 'var(--rouge-gradient)';
-                    uploadBtn.disabled = false;
                     
-                    alert('Document publié avec succès !');
-                }, 1500);
-            }, 2000);
+                    // Réinitialiser le formulaire
+                    setTimeout(() => {
+                        this.reset();
+                        uploadBtn.innerHTML = originalHTML;
+                        uploadBtn.style.background = originalBackground;
+                        uploadBtn.disabled = false;
+                        
+                        // Recharger la page ou ajouter le nouveau document dynamiquement
+                        location.reload();
+                    }, 1500);
+                } else {
+                    uploadBtn.innerHTML = '<i class="fas fa-times"></i> Erreur';
+                    uploadBtn.style.background = '#dc3545';
+                    
+                    setTimeout(() => {
+                        uploadBtn.innerHTML = originalHTML;
+                        uploadBtn.style.background = originalBackground;
+                        uploadBtn.disabled = false;
+                        alert('Erreur: ' + (data.error || 'Impossible de publier le document'));
+                    }, 2000);
+                }
+            })
+            .catch(error => {
+                uploadBtn.innerHTML = '<i class="fas fa-times"></i> Erreur';
+                uploadBtn.style.background = '#dc3545';
+                
+                setTimeout(() => {
+                    uploadBtn.innerHTML = originalHTML;
+                    uploadBtn.style.background = originalBackground;
+                    uploadBtn.disabled = false;
+                    alert('Erreur réseau: ' + error.message);
+                }, 2000);
+            });
         });
     }
     

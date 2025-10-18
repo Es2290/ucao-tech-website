@@ -51,7 +51,9 @@
                                 <li><a href="anciens.php">Anciens Membres</a></li>
                             </ul>
                         </li>
+                        
                         <li class="active"><a href="document.php">Documents</a></li>
+                        <li><a href="actualites.php">Actualités</a></li>
                         <li><a href="galerie.php">Galerie</a></li>
                         <li class="dropdown">
                             <a href="contact.php">Contact <i class="fas fa-chevron-down"></i></a>
@@ -127,7 +129,7 @@
                         <i class="fas fa-file-alt"></i>
                     </div>
                     <div class="stat-info">
-                        <span class="stat-number" id="total-docs">0</span>
+                        <span class="stat-number" id="total-docs">10</span>
                         <span class="stat-label">Documents au total</span>
                     </div>
                 </div>
@@ -136,7 +138,7 @@
                         <i class="fas fa-download"></i>
                     </div>
                     <div class="stat-info">
-                        <span class="stat-number" id="total-downloads">0</span>
+                        <span class="stat-number" id="total-downloads">2</span>
                         <span class="stat-label">Téléchargements</span>
                     </div>
                 </div>
@@ -145,7 +147,7 @@
                         <i class="fas fa-users"></i>
                     </div>
                     <div class="stat-info">
-                        <span class="stat-number" id="active-users">0</span>
+                        <span class="stat-number" id="active-users">10</span>
                         <span class="stat-label">Utilisateurs actifs</span>
                     </div>
                 </div>
@@ -158,144 +160,137 @@
                 $documents = [
                     [
                         'id' => 1,
-                        'titre' => 'Statuts de l\'Association UCAO TECH',
+                        'titre' => 'Statut de l\'Association UCAO TECH',
                         'categorie' => 'statuts',
-                        'annee' => '2024',
+                        'annee' => '',
                         'type_fichier' => 'pdf',
-                        'taille' => '2.4 MB',
-                        'date_publication' => '2024-01-15',
+                        'taille' => '334 Ko',
+                        'date_publication' => '',
                         'auteur' => 'Bureau Exécutif',
                         'description' => 'Document officiel définissant les statuts et le règlement intérieur de l\'association UCAO TECH.',
-                        'fichier' => 'documents/statuts-ucaotech-2024.pdf',
-                        'telechargements' => 156,
+                        'fichier' => 'media/documents/STATUT UCAO TECH.pdf',
+                        'telechargements' => 10,
                         'est_important' => true
                     ],
                     [
                         'id' => 2,
-                        'titre' => 'Rapport d\'Activités 2023',
+                        'titre' => 'Rapport d\'Activités ',
                         'categorie' => 'rapports',
-                        'annee' => '2023',
+                        'annee' => '',
                         'type_fichier' => 'pdf',
-                        'taille' => '5.7 MB',
-                        'date_publication' => '2024-01-10',
+                        'taille' => '',
+                        'date_publication' => '',
                         'auteur' => 'Comité de Direction',
                         'description' => 'Rapport complet des activités, réalisations et bilan financier de l\'association pour l\'année 2023.',
-                        'fichier' => 'documents/rapport-activites-2023.pdf',
-                        'telechargements' => 89,
+                        'fichier' => 'media/documents/',
+                        'telechargements' => 10,
                         'est_important' => true
                     ],
+                    
                     [
                         'id' => 3,
-                        'titre' => 'Procès-verbal AG 2023',
-                        'categorie' => 'proces-verbaux',
-                        'annee' => '2023',
-                        'type_fichier' => 'docx',
-                        'taille' => '1.2 MB',
-                        'date_publication' => '2023-12-20',
-                        'auteur' => 'Secrétariat Général',
-                        'description' => 'Procès-verbal de l\'assemblée générale ordinaire tenue le 15 décembre 2023.',
-                        'fichier' => 'documents/pv-ag-2023.docx',
-                        'telechargements' => 67,
-                        'est_important' => false
-                    ],
-                    [
-                        'id' => 4,
                         'titre' => 'Guide du Membre UCAO TECH',
                         'categorie' => 'guides',
-                        'annee' => '2024',
+                        'annee' => '',
                         'type_fichier' => 'pdf',
-                        'taille' => '3.1 MB',
+                        'taille' => '379 Ko',
                         'date_publication' => '2024-01-08',
                         'auteur' => 'Comité d\'Accueil',
                         'description' => 'Guide complet pour les nouveaux membres : fonctionnement, avantages et procédures.',
-                        'fichier' => 'documents/guide-membre-2024.pdf',
-                        'telechargements' => 234,
+                        'fichier' => 'media/documents/UCAO TECH ASSOCIATION.pdf',
+                        'telechargements' => 10,
                         'est_important' => true
+                    ],
+                    [
+                        'id' => 4,
+                        'titre' => 'Présentation UCAO TECH 2024',
+                        'categorie' => 'presentations',
+                        'annee' => '',
+                        'type_fichier' => 'pptx',
+                        'taille' => '8.9 MB',
+                        'date_publication' => '',
+                        'auteur' => 'Bureau Communication',
+                        'description' => 'Présentation officielle de l\'association pour les événements et partenariats 2024.',
+                        'fichier' => 'media/documents/UCAO TECH ASSOCIATION.pdf',
+                        'telechargements' => 10,
+                        'est_important' => false
                     ],
                     [
                         'id' => 5,
-                        'titre' => 'Présentation UCAO TECH 2024',
-                        'categorie' => 'presentations',
-                        'annee' => '2024',
-                        'type_fichier' => 'pptx',
-                        'taille' => '8.9 MB',
-                        'date_publication' => '2024-01-05',
-                        'auteur' => 'Bureau Communication',
-                        'description' => 'Présentation officielle de l\'association pour les événements et partenariats 2024.',
-                        'fichier' => 'documents/presentation-ucaotech-2024.pptx',
-                        'telechargements' => 178,
-                        'est_important' => false
-                    ],
-                    [
-                        'id' => 6,
-                        'titre' => 'Règlement des Clubs',
+                        'titre' => 'Règlement intérieur UCAO TECH',
                         'categorie' => 'statuts',
-                        'annee' => '2024',
+                        'annee' => '',
                         'type_fichier' => 'pdf',
-                        'taille' => '1.8 MB',
-                        'date_publication' => '2024-01-12',
+                        'taille' => '318 Ko',
+                        'date_publication' => '',
                         'auteur' => 'Comité des Clubs',
                         'description' => 'Règlement spécifique régissant le fonctionnement des différents clubs de l\'association.',
-                        'fichier' => 'documents/reglement-clubs-2024.pdf',
-                        'telechargements' => 112,
-                        'est_important' => false
-                    ],
-                    [
-                        'id' => 7,
-                        'titre' => 'Budget Prévisionnel 2024',
-                        'categorie' => 'rapports',
-                        'annee' => '2024',
-                        'type_fichier' => 'xlsx',
-                        'taille' => '0.9 MB',
-                        'date_publication' => '2024-01-18',
-                        'auteur' => 'Trésorerie',
-                        'description' => 'Budget prévisionnel détaillé pour l\'année 2024 avec répartition par activité.',
-                        'fichier' => 'documents/budget-2024.xlsx',
-                        'telechargements' => 45,
+                        'fichier' => 'media/documents/REGLEMENT INTERIEUR UCAO TECH.pdf',
+                        'telechargements' => 10,
                         'est_important' => true
                     ],
+
                     [
-                        'id' => 8,
-                        'titre' => 'Tutoriel Git & GitHub',
-                        'categorie' => 'guides',
-                        'annee' => '2023',
-                        'type_fichier' => 'pdf',
-                        'taille' => '4.2 MB',
-                        'date_publication' => '2023-11-15',
-                        'auteur' => 'Digital Pro Club',
-                        'description' => 'Guide complet pour maîtriser Git et GitHub dans le cadre des projets de développement.',
-                        'fichier' => 'documents/tutoriel-git-github.pdf',
-                        'telechargements' => 321,
-                        'est_important' => false
-                    ],
-                    [
-                        'id' => 9,
+                        'id' => 6,
                         'titre' => 'Charte Graphique UCAO TECH',
                         'categorie' => 'divers',
-                        'annee' => '2024',
+                        'annee' => '',
                         'type_fichier' => 'zip',
                         'taille' => '12.5 MB',
-                        'date_publication' => '2024-01-20',
+                        'date_publication' => '',
                         'auteur' => 'Design Club',
                         'description' => 'Pack complet de la charte graphique : logos, couleurs, polices et templates.',
-                        'fichier' => 'documents/charte-graphique-ucaotech.zip',
+                        'fichier' => 'media/documents/graphic-ucaotech.zip',
                         'telechargements' => 78,
+                        'est_important' => true
+                    ],
+                    
+                    [
+                        'id' => 7,
+                        'titre' => 'Tutoriel Git & GitHub',
+                        'categorie' => 'guides',
+                        'annee' => '2022',
+                        'type_fichier' => 'pdf',
+                        'taille' => '4.2 MB',
+                        'date_publication' => '',
+                        'auteur' => 'Digital Pro Club',
+                        'description' => 'Guide complet pour maîtriser Git et GitHub',
+                        'fichier' => 'media/documents/intro-git-github.pdf',
+                        'telechargements' => 30,
                         'est_important' => false
                     ],
+
                     [
-                        'id' => 10,
-                        'titre' => 'Procès-verbal Réunion Bureau',
-                        'categorie' => 'proces-verbaux',
+                        'id' => 8,
+                        'titre' => 'Initiation à HTML 5 et CSS3',
+                        'categorie' => 'guides',
+                        'annee' => '2013',
+                        'type_fichier' => 'pdf',
+                        'taille' => '11.2 MB',
+                        'date_publication' => '',
+                        'auteur' => 'Mathieu Nebra, OC',
+                        'description' => 'Pack complet de la charte graphique : logos, couleurs, polices et templates.',
+                        'fichier' => 'media/documents/apprenez-a-creer-votre-site-web-avec-html5-et-css3.pdf',
+                        'telechargements' => 10,
+                        'est_important' => false
+                    ],
+                    
+
+                    [
+                        'id' => 9,
+                        'titre' => 'Classroom Projets',
+                        'categorie' => 'divers',
                         'annee' => '2024',
                         'type_fichier' => 'pdf',
-                        'taille' => '0.8 MB',
-                        'date_publication' => '2024-01-25',
-                        'auteur' => 'Secrétariat Général',
-                        'description' => 'Compte-rendu de la réunion du bureau exécutif du 20 janvier 2024.',
-                        'fichier' => 'documents/pv-bureau-2024-01.pdf',
-                        'telechargements' => 34,
+                        'taille' => '407 Ko',
+                        'date_publication' => '',
+                        'auteur' => 'Club Digital Pro',
+                        'description' => 'Projets',
+                        'fichier' => 'media/documents/UCAO Classroom.pdf',
+                        'telechargements' => 10,
                         'est_important' => false
-                    ]
+                    ],
+                    
                 ];
 
                 // Fonction pour obtenir l'icône du type de fichier

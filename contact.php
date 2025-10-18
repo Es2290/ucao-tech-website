@@ -225,39 +225,23 @@
                 <div class="location-info">
                     <h3>Accès au campus</h3>
                     <div class="access-info">
-                        <div class="access-item">
-                            <i class="fas fa-bus"></i>
-                            <div>
-                                <h4>Transport en commun</h4>
-                                <p>Lignes de bus 12, 15 et 22 - Arrêt "UCAO"</p>
-                            </div>
-                        </div>
+                        
+                        
+
                         
                         <div class="access-item">
-                            <i class="fas fa-car"></i>
-                            <div>
-                                <h4>Voiture personnelle</h4>
-                                <p>Parking disponible sur le campus</p>
-                            </div>
-                        </div>
-                        
-                        <div class="access-item">
-                            <i class="fas fa-motorcycle"></i>
-                            <div>
-                                <h4>Moto/Taxi</h4>
-                                <p>Zone de dépose-minute accessible</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="campus-info">
+                            <div class="campus-info">
                         <h4>Sur le campus</h4>
                         <ul>
-                            <li>Bâtiment principal - Aile B</li>
-                            <li>Premier étage - Salle 102</li>
+                            <li>Bâtiment principal UCAO St Jean, Cotonou</li>
+                            
                             <li>Ouvert aux étudiants et visiteurs</li>
                         </ul>
                     </div>
+                        </div>
+                    </div>
+                    
+                    
                 </div>
             </div>
         </div>

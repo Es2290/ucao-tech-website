@@ -52,6 +52,7 @@
                             </ul>
                         </li>
                         <li><a href="document.php">Documents</a></li>
+                        <li><a href="actualites.php">Actualités</a></li>
                         <li><a href="galerie.php">Galerie</a></li>
                         <li class="dropdown">
                             <a href="contact.php">Contact <i class="fas fa-chevron-down"></i></a>
