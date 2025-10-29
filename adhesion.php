@@ -584,7 +584,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </div>
             </div>
 
-            <!-- Section Processus -->
+            <!-- Section Processus
             <div class="processus-section">
                 <div class="section-title">
                     <h2>Comment Adhérer ?</h2>
@@ -620,7 +620,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
 
             <!-- Section Tarifs -->
             <div class="tarifs-section">
