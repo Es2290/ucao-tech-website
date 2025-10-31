@@ -57,22 +57,11 @@ body {
 }
 
         .adhesion-container {
-            max-width: 1200px;
             margin: 0 auto;
-            padding: 0 30px;
         }
 
         /* En-tête Hero */
         .adhesion-hero {
-            
-            /* text-align: center;
-            margin-bottom: 50px;
-            background: linear-gradient(135deg, var(--bleu-nuit) 0%, var(--rouge-nuit) 100%);
-            padding: 100px 0px;
-            text-align: center;
-            animation: slideUp 1s ease;
-            border-radius: 15px;
-            border: 1px solid rgba(255, 255, 255, 0.2); */
             background: linear-gradient(135deg, rgba(26, 35, 126, 0.9) 0%, rgba(183, 28, 28, 0.8) 100%),
                     url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80') center/cover;
                 color: var(--blanc);
@@ -80,6 +69,7 @@ body {
                 text-align: center;
                 position: relative;
                 overflow: hidden;
+                animation: slideUp 1s ease;
         }
         
 
@@ -123,6 +113,8 @@ body {
         /* Section Avantages */
         .avantages-section {
             margin-bottom: 50px;
+            margin-left: px;
+            margin-right:px;
         }
 
         .section-title {
@@ -162,9 +154,10 @@ body {
 
         .avantages-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-bottom: 40px;
+            grid-template-columns: repeat(4, 1fr); /* 4 colonnes fixes */
+            gap: 25px;
+            margin: 0 auto;
+            max-width: 1200px;
         }
 
         .avantage-card {
