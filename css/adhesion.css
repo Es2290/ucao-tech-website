@@ -85,19 +85,20 @@ body {
 
         .adhesion-hero h1 {
             font-size: 3.5rem;
-                margin-bottom: 20px;
-                text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
-                font-weight: 700;
-
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+            font-weight: 700;
         }
         
 
         .adhesion-hero p {
-            font-size: 1.2rem;
+            font-size:1.5rem;
             color: var(--blanc);
             max-width: 600px;
             margin: 0 auto;
             line-height: 1.6;
+          opacity: 0.9;
+         font-weight: 300;
         }
         /* Animation de frappe au clavier */
 .typing-animation {
